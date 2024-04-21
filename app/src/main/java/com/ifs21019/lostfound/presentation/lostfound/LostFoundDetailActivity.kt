@@ -1,4 +1,4 @@
-package com.ifs21019.lostfound.presentation.todo
+package com.ifs21019.lostfound.presentation.lostfound
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,13 +10,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.ifs21019.lostfound.ViewModelFactory
 import com.ifs21019.lostfound.data.local.entity.LostFoundEntity
-import com.ifs21019.lostfound.data.model.LostFound
 import com.ifs21019.lostfound.data.remote.MyResult
-import com.ifs21019.lostfound.data.remote.response.LostandFoundResponse
 import com.ifs21019.lostfound.databinding.ActivityLostFoundDetailBinding
 import com.ifs21019.lostfound.helper.Utils.Companion.observeOnce
 import com.ifs21019.lostfound.R
-import com.ifs21019.lostfound.presentation.lostfound.LostFoundManageActivity
+import com.ifs21019.lostfound.presentation.todo.TodoViewModel
 
 class LostFoundDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLostFoundDetailBinding
