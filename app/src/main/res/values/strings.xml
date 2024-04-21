@@ -1,7 +1,14 @@
 <resources>
-    <string name="app_name">Losts And Founds</string>
+    <string name="app_name">Lost &amp; Founds</string>
+
     <string-array name="status">
         <item>lost</item>
         <item>found</item>
     </string-array>
+
+    <string-array name="icon">
+        <item>@drawable/icon_gambar</item>
+    </string-array>
+
 </resources>
+
