@@ -14,11 +14,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/appbarMain"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#0188A4"
+            android:background="@color/ungu"
             app:menu="@menu/main_menu"
             app:title="@string/app_name"
             app:titleTextColor="@color/white" />
@@ -31,27 +32,27 @@
         android:isScrollContainer="false"
         android:keepScreenOn="false"
         android:queryBackground="@null"
-        android:queryHint="Temukan object..."
+        android:queryHint="Temukan barang..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appbarLayoutMain" >
     </SearchView>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMainObjects"
+        android:id="@+id/rvMainLostFounds"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/svMain"
-        tools:listitem="@layout/item_row_object" />
+        tools:listitem="@layout/item_row_lostfound" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabMainAddObject"
+        android:id="@+id/fabMainAddLostFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="#0188A4"
+        app:backgroundTint="@color/ungu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_24"
@@ -72,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Belum terdapat data todo!"
+        android:text="Belum terdapat data barang temuan!"
         android:textColor="#E6180D"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
