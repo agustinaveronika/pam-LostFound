@@ -7,7 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ifs21019.lostfounds.data.local.entity.DelcomLostFoundEntity
-import retrofit2.http.Query
+
 
 @Dao
 interface IDelcomLostFoundDao {

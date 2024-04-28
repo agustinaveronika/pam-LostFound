@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ifs18005.delcomtodo.data.remote.response.LostFoundsItemResponse
-import com.ifs21019.lostfound.databinding.ItemRowLostfoundBinding
+import com.ifs21019.lostfounds.databinding.ItemRowLostfoundBinding
+
 
 class LostFoundsAdapter :
     ListAdapter<LostFoundsItemResponse,

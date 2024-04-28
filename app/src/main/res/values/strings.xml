@@ -7,7 +7,7 @@
     </string-array>
 
     <string-array name="icon">
-        <item>@drawable/icon_gambar</item>
+        <item>@drawable/ic_gbr</item>
     </string-array>
 
 </resources>

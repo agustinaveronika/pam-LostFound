@@ -26,8 +26,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon_gambar"
-            tools:src="@tools:sample/avatars" />
+            app:srcCompat="@drawable/ic_gbr"
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="TODO" />
 
         <CheckBox
             android:id="@+id/cbItemLostFoundIsFinished"

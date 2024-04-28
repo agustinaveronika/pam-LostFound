@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.ifs18005.delcomtodo.data.remote.response.LostFoundResponse
 import com.ifs21019.lostfounds.R
 import com.ifs21019.lostfounds.data.local.entity.DelcomLostFoundEntity
@@ -96,12 +98,24 @@ class LostFoundDetailActivity : AppCompatActivity() {
 
     private fun loadTodo(todo: LostFoundResponse?) {
         if (todo != null) {
+            Log.d("DetailActivity", "URL Gambar: ${todo.cover}")
             showComponent(true)
 
             binding.apply {
                 tvLostFoundDetailTitle.text = todo.title
                 tvLostFoundDetailDate.text = "Diposting pada: ${todo.createdAt}"
                 tvLostFoundDetailDesc.text = todo.description
+
+                if(todo.cover != null){
+                    imageView2.visibility = View.VISIBLE
+
+                    Glide.with(this@LostFoundDetailActivity)
+                        .load(todo.cover)
+                        .placeholder(R.drawable.ic_image_24)
+                        .into(imageView2)
+                }else{
+                    imageView2.visibility = View.GONE
+                }
 
                 viewModel.getLocalLostFound(todo.id).observeOnce {
                     if(it != null){

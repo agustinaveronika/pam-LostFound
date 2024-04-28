@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.LostFounds" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/pink</item>
+         <item name="colorPrimary">@color/offwhite</item>
     </style>
 
     <style name="Theme.LostFounds" parent="Base.Theme.LostFounds" />

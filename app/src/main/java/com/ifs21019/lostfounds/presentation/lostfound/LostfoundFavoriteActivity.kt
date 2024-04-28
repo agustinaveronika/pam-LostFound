@@ -16,10 +16,10 @@ import com.ifs21019.lostfounds.R
 import com.ifs21019.lostfounds.adapter.LostFoundsAdapter
 import com.ifs21019.lostfounds.data.local.entity.DelcomLostFoundEntity
 import com.ifs21019.lostfounds.data.remote.MyResult
+import com.ifs21019.lostfounds.databinding.ActivityLostfoundFavoriteBinding
 import com.ifs21019.lostfounds.helper.Utils.Companion.entitiesToResponses
 import com.ifs21019.lostfounds.helper.Utils.Companion.observeOnce
 import com.ifs21019.lostfounds.presentation.ViewModelFactory
-import com.ifs21019.lostfounds.databinding.ActivityLostfoundFavoriteBinding
 
 
 

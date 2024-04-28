@@ -1,9 +1,12 @@
 package com.ifs21019.lostfounds.presentation.lostfound
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -13,9 +16,10 @@ import com.ifs21019.lostfounds.data.model.LostFound
 import com.ifs21019.lostfounds.data.remote.MyResult
 import com.ifs21019.lostfounds.databinding.ActivityLostfoundManageBinding
 import com.ifs21019.lostfounds.helper.Utils.Companion.observeOnce
+import com.ifs21019.lostfounds.helper.getImageUri
 import com.ifs21019.lostfounds.presentation.ViewModelFactory
-
 class LostFoundManageActivity : AppCompatActivity() {
+    private var currentImageUri: Uri? = null
     private lateinit var binding: ActivityLostfoundManageBinding
     private val viewModel by viewModels<LostFoundViewModel> {
         ViewModelFactory.getInstance(this)
@@ -32,7 +36,7 @@ class LostFoundManageActivity : AppCompatActivity() {
     private fun setupView() {
         showLoading(false)
 
-        binding.btnLostFoundPicture.setOnClickListener {
+        binding.btnTodoManageGallery.setOnClickListener {
             // Membuat intent untuk memilih gambar dari galeri
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
@@ -168,6 +172,50 @@ class LostFoundManageActivity : AppCompatActivity() {
 
                 observePutLostFound(todo.id, title, description, status, todo.iscompleted)
             }
+            btnTodoManageCamera.setOnClickListener {
+                startCamera()
+            }
+            btnTodoManageGallery.setOnClickListener {
+                startGallery()
+            }
+        }
+    }
+    private fun startGallery() {
+        launcherGallery.launch(
+            PickVisualMediaRequest(
+                ActivityResultContracts.PickVisualMedia.ImageOnly
+            )
+        )
+    }
+    private val launcherGallery = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            currentImageUri = uri
+            showImage()
+        } else {
+            Toast.makeText(
+                applicationContext,
+                "Tidak ada media yang dipilih!",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+    private fun showImage() {
+        currentImageUri?.let {
+            binding.ivSelectedImage.setImageURI(it)
+        }
+    }
+
+    private fun startCamera() {
+        currentImageUri = getImageUri(this)
+        launcherIntentCamera.launch(currentImageUri)
+    }
+    private val launcherIntentCamera = registerForActivityResult(
+        ActivityResultContracts.TakePicture()
+    ) { isSuccess ->
+        if (isSuccess) {
+            showImage()
         }
     }
 
